@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceleration</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />   
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+        $(function() {
+          $('input[name="daterange"]').daterangepicker({
+            opens: 'left'
+          }, function(start, end, label) {
+            console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+          });
+        });
+    </script>
+
+</head>
+<body>
+    <div class="page-container">
+        <div class="left-menu">
+            <a><div class="menu-item"><p>Главная </p></div></a>
+            <a href="overview.html"><div class="menu-item"><p>Обзор </p></div></a>
+            <a href="vibrospeed-trend.html"><div class="menu-item"><p>Тренды виброскорости </p></div></a>
+            <a href="vibroacc-trend.html"><div class="menu-item"><p>Тренды виброускорения </p></div></a>
+            <a><div class="menu-item"><p>Тренды полос спектров </p></div></a>
+            <a><div class="menu-item"><p>Спектры </p></div></a>
+            <a><div class="menu-item"><p>Активаные сообщения </p></div></a>
+            <a><div class="menu-item"><p>Архивные сообщения </p></div></a>
+        </div>
+
+        <div class="main-page">
+            <div class="buttons-container">
+                <button id="top-button"> Working </button> 
+                <button id="top-button"> No signal</button>
+            </div>
+            
+            
+            <div class="graph-container-2">
+                <canvas id="accgraph"></canvas>
+            </div>
+            <hr>
+                <div class="fields">
+                   
+                    <div class="select-1">
+                        <p>Выберите тип</p>
+                        <select id="firstSelect">
+                            <option value="">Тип</option>
+                            <option value="1"></option>
+                            <option value="2"></option>
+                            <option value="3"></option>
+                        </select>
+                    </div>
+                    
+                    <div class="select-2">
+                        <p>Выберите канал</p>
+                        <select id="secondSelect" >
+                            <option value="">Название</option>
+                            <option value="1"></option>
+                            <option value="2"></option>
+                            <option value="3"></option>
+                        </select>
+                    </div>
+                    
+                    <div class="select-3">
+                        <p>Выберите название линии</p>
+                        <select id="thirdSelect">
+                            <option value="">Выбрать</option>
+                            <option value="1"></option>
+                            <option value="2"></option>
+                            <option value="3"></option>
+                        </select>
+                    </div>
+                    
+                    <div class="date-field"> Период отображения данных
+                        <input id="date" type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
+                    </div>
+
+                    <button id="submit-btn">Применить</button>
+                </div>
+
+            </div>
+    </div>    
+</body>
+</html>
